@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <div v-for="(item, i) in pendingOrders" :key="i">
-      <Order />
-    </div>
+    <v-container>
+      <v-row>
+        <v-col>
+          <div v-for="(item, i) in pendingOrders" :key="i">
+            <Order :order="item" />
+          </div>
+        </v-col>
+        <v-col>
+          <h2>Assigned Orders</h2>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
-
 <script>
 
 import Order from './components/Order'
@@ -48,4 +55,11 @@ export default {
   }
 }
 </script>
+
+<style>
+  #app {
+    background-color: #2a2a2a;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+</style>
 
