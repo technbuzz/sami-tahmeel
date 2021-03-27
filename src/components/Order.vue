@@ -84,6 +84,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * @param {DateTimeFormatOptions} options
+     * @returns {string} 
+     */
     formatDate (options) {
       const date = new Date(this.order.created_at)
       const result = Intl.DateTimeFormat('en-GB', options).format(date)

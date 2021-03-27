@@ -9,7 +9,6 @@
 </template>
 <script>
 
-// import Order from './components/Order'
 import Orders from './components/Orders'
 
 export default {
