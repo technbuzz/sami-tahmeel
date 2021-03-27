@@ -16,7 +16,7 @@
             <slot></slot>
           </div>
 
-          <strong>{{ formattedDate }} </strong>
+          <strong>{{ month }} </strong>
         </v-col>
       </v-row>
     </v-card-text>
@@ -37,7 +37,7 @@
       >
         <div class="ml-4">
           <div class="text-uppercase font-weight-light">CreatedAt:</div>
-          <strong>{{ formattedCreatedDate }}</strong>
+          <strong>{{ createdDate }}</strong>
         </div>
       </v-row>
 
@@ -66,27 +66,28 @@
 export default {
   name: 'Order', 
   props: [ 'order' ],
-  created() {
-    console.log(this.order)
-  },
   computed: {
-    formattedCreatedDate () {
-      const date = new Date(this.order.created_at)
+    createdDate () {
       const options = {
         day: 'numeric',
         month: '2-digit',
         hour: 'numeric', minute: 'numeric', hour12: false
       };
-      const result = new Intl.DateTimeFormat('en-GB', options).format(date)
-      return result.split(',').join('')
+      return this.formatDate(options)
     },
-    formattedDate () {
-      const date = new Date(this.order.created_at)
+    month () {
       const options = {
         day: 'numeric',
         month: 'long',
       };
-      return new Intl.DateTimeFormat('en-GB', options).format(date)
+      return this.formatDate(options)
+    }
+  },
+  methods: {
+    formatDate (options) {
+      const date = new Date(this.order.created_at)
+      const result = Intl.DateTimeFormat('en-GB', options).format(date)
+      return result.split(',').join('')
     }
   }
 }

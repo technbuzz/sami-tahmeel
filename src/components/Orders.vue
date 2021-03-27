@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col>
-      <v-expansion-panels accordion>
+      <v-expansion-panels accordion :value="0">
         <v-expansion-panel>
           <v-expansion-panel-header class="order">
             <template v-slot:actions>
