@@ -4,14 +4,25 @@
     class="mb-2"
     max-width="374"
   >
-    <v-card-title light>{{ order.customer_name }}</v-card-title>
+    <v-card-text class="card-header my-0 py-2">
+      <v-row class="space-between">
+        <v-col>
+          <div class="text-uppercase">ref/po</div>
+          <strong>{{ order.load_ref}}</strong>
+        </v-col>
+        <v-spacer></v-spacer>
+        <v-col>
+          <div class="text-uppercase">To Pickup</div>
+          <strong>{{ formattedDate }} </strong>
+        </v-col>
+      </v-row>
+    </v-card-text>
     <v-divider></v-divider>
     <v-card-text>
       <v-row
         align="center"
-        class="mx-0"
+        class="mx-0 justify-center"
       >
-
         <div class="grey--text ml-4">
           <strong> Order: {{ order.order_number }} </strong>
         </div>
@@ -19,28 +30,28 @@
 
       <v-row
         align="center"
-        class="mx-0"
+        class="mx-0 justify-center"
       >
         <div class="grey--text ml-4">
-          <p class="term">CreatedAt:</p>
-          <strong>{{ order.created_at }}</strong>
+          <div class="text-uppercase">CreatedAt:</div>
+          <strong>{{ formattedCreatedDate }}</strong>
         </div>
       </v-row>
 
       <v-row>
         <v-col>
-          <p class="term">Customer Name</p>
+          <div class="text-uppercase">Customer Name</div>
           <strong>{{ order.customer_name }}</strong>
 
-          <p class="term">Price to Customer</p>
-          <!-- {{ order.}} -->
+          <div class="text-uppercase mt-2">Price to Customer</div>
+          <strong>123.00 AED</strong>
         </v-col>
         <v-col>
-          <p class="term">Phone Number</p>
+          <div class="text-uppercase">Phone Number</div>
           <strong>{{ order.phone_number }}</strong>
 
-          <p class="term">Tahmeel Fee</p>
-          <strong>{{ order.tahmeel_fee_in_cents }}</strong>
+          <div class="mt-2 text-uppercase">Tahmeel Fee</div>
+          <strong>{{ order.order_price_formatted }}</strong>
         </v-col>
       </v-row>
     </v-card-text>
@@ -54,6 +65,26 @@ export default {
   props: [ 'order' ],
   created() {
     console.log(this.order)
+  },
+  computed: {
+    formattedCreatedDate () {
+      const date = new Date(this.order.created_at)
+      const options = {
+        day: 'numeric',
+        month: '2-digit',
+        hour: 'numeric', minute: 'numeric', hour12: false
+      };
+      const result = new Intl.DateTimeFormat('en-GB', options).format(date)
+      return result.split(',').join('')
+    },
+    formattedDate () {
+      const date = new Date(this.order.created_at)
+      const options = {
+        day: 'numeric',
+        month: 'long',
+      };
+      return new Intl.DateTimeFormat('en-GB', options).format(date)
+    }
   }
 }
 </script>
@@ -62,8 +93,9 @@ export default {
   .mb-2 {
     margin-bottom: 8px;
   }
-  .term {
-    font-size: small;
-    text-transform: uppercase;
+
+  v-card-text.card-header.card-header {
+    background-color: #fff;
+    color: #666;
   }
 </style>

@@ -1,17 +1,21 @@
 <template>
   <div id="app">
-    <v-container>
-      <v-row>
-        <v-col>
-          <div v-for="(item, i) in pendingOrders" :key="i">
-            <Order :order="item" />
-          </div>
-        </v-col>
-        <v-col>
-          <h2>Assigned Orders</h2>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-app>
+      <v-container>
+        <v-row>
+          <v-col>
+            <div v-for="(item, i) in pendingOrders" :key="i">
+              <Order :order="item" />
+            </div>
+          </v-col>
+          <v-col>
+            <h2>Assigned Orders</h2>
+
+
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-app>
   </div>
 </template>
 <script>
