@@ -4,7 +4,7 @@
     class="mb-5"
     max-width="374"
   >
-    <v-card-text class="card-header my-0 py-2">
+    <v-card-text class="my-0 py-2" id="card-header">
       <v-row justify="space-between">
         <v-col>
           <div class="text-uppercase font-weight-light">ref/po</div>
@@ -12,18 +12,21 @@
         </v-col>
         <v-spacer></v-spacer>
         <v-col>
-          <div class="text-uppercase font-weight-light">To Pickup</div>
+          <div class="text-uppercase font-weight-light">
+            <slot></slot>
+          </div>
+
           <strong>{{ formattedDate }} </strong>
         </v-col>
       </v-row>
     </v-card-text>
     <v-divider></v-divider>
-    <v-card-text>
+    <v-card-text id="card-body">
       <v-row
         align="center"
         class="mx-0 justify-center"
       >
-        <div class="grey--text ml-4">
+        <div class="ml-4">
           <strong> Order: {{ order.order_number }} </strong>
         </div>
       </v-row>
@@ -32,7 +35,7 @@
         align="center"
         class="mx-0 justify-center"
       >
-        <div class="grey--text ml-4">
+        <div class="ml-4">
           <div class="text-uppercase font-weight-light">CreatedAt:</div>
           <strong>{{ formattedCreatedDate }}</strong>
         </div>
@@ -89,13 +92,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
   .mb-2 {
     margin-bottom: 8px;
   }
 
-  v-card-text.card-header.card-header {
+  #card-header {
     background-color: #fff;
     color: #666;
+  }
+
+  #card-body{ 
+    background: #545454
   }
 </style>

@@ -9,11 +9,11 @@
             </template>
             <v-spacer class="order-spacer"></v-spacer>
             <span class="header text-uppercase">Pending</span>
-            <v-badge class="badge" color="#70D6C1" tile inline :content="pending.length"></v-badge>
+            <v-badge class="badge" color="#70D6C1" inline :content="pending.length"></v-badge>
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <div v-for="(item, i) in pending" :key="i">
-              <Order :order="item" />
+              <Order :order="item"><v-spacer></v-spacer></Order>
             </div>
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -24,11 +24,11 @@
             </template>
             <v-spacer class="order-spacer"></v-spacer>
             <span class="header text-uppercase">Assigned</span>
-            <v-badge class="badge" color="#70D6C1" tile inline :content="assigned.length"></v-badge>
+            <v-badge class="badge" color="#70D6C1" inline :content="assigned.length"></v-badge>
           </v-expansion-panel-header>
           <v-expansion-panel-content>
             <div v-for="(item, i) in assigned" :key="i">
-              <Order :order="item" />
+              <Order :order="item">To Pickup</Order>
             </div>
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -52,7 +52,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+  $badge-min-width: 30px;
+
   .icon {
     order: 0;
   }

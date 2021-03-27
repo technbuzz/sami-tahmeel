@@ -52,7 +52,6 @@ export default {
 
 <style>
   #app {
-    background-color: #2a2a2a;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 </style>
