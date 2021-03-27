@@ -1,18 +1,18 @@
 <template>
   <v-card
     dark
-    class="mb-2"
+    class="mb-5"
     max-width="374"
   >
     <v-card-text class="card-header my-0 py-2">
-      <v-row class="space-between">
+      <v-row justify="space-between">
         <v-col>
-          <div class="text-uppercase">ref/po</div>
+          <div class="text-uppercase font-weight-light">ref/po</div>
           <strong>{{ order.load_ref}}</strong>
         </v-col>
         <v-spacer></v-spacer>
         <v-col>
-          <div class="text-uppercase">To Pickup</div>
+          <div class="text-uppercase font-weight-light">To Pickup</div>
           <strong>{{ formattedDate }} </strong>
         </v-col>
       </v-row>
@@ -33,24 +33,24 @@
         class="mx-0 justify-center"
       >
         <div class="grey--text ml-4">
-          <div class="text-uppercase">CreatedAt:</div>
+          <div class="text-uppercase font-weight-light">CreatedAt:</div>
           <strong>{{ formattedCreatedDate }}</strong>
         </div>
       </v-row>
 
       <v-row>
         <v-col>
-          <div class="text-uppercase">Customer Name</div>
+          <div class="text-uppercase font-weight-light">Customer Name</div>
           <strong>{{ order.customer_name }}</strong>
 
-          <div class="text-uppercase mt-2">Price to Customer</div>
+          <div class="text-uppercase font-weight-light mt-2">Price to Customer</div>
           <strong>123.00 AED</strong>
         </v-col>
         <v-col>
-          <div class="text-uppercase">Phone Number</div>
+          <div class="text-uppercase font-weight-light">Phone Number</div>
           <strong>{{ order.phone_number }}</strong>
 
-          <div class="mt-2 text-uppercase">Tahmeel Fee</div>
+          <div class="mt-2 text-uppercase font-weight-light">Tahmeel Fee</div>
           <strong>{{ order.order_price_formatted }}</strong>
         </v-col>
       </v-row>

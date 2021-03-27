@@ -2,30 +2,20 @@
   <div id="app">
     <v-app>
       <v-container>
-        <v-row>
-          <v-col>
-            <div v-for="(item, i) in pendingOrders" :key="i">
-              <Order :order="item" />
-            </div>
-          </v-col>
-          <v-col>
-            <h2>Assigned Orders</h2>
-
-
-          </v-col>
-        </v-row>
+        <Orders :pending="pendingOrders" :assigned="assignedOrders" />
       </v-container>
     </v-app>
   </div>
 </template>
 <script>
 
-import Order from './components/Order'
+// import Order from './components/Order'
+import Orders from './components/Orders'
 
 export default {
   name: 'App',
   components: {
-    Order
+    Orders
   },
   data () {
     return {
