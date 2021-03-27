@@ -7,7 +7,7 @@
     <v-card-text class="my-0 py-2" id="card-header">
       <v-row justify="space-between">
         <v-col>
-          <div class="text-uppercase font-weight-light">ref/po</div>
+          <div class="text-uppercase font-weight-light">ref/po:</div>
           <strong>{{ order.load_ref}}</strong>
         </v-col>
         <v-spacer></v-spacer>
@@ -36,7 +36,7 @@
         class="mx-0 justify-center"
       >
         <div class="ml-4">
-          <div class="text-uppercase font-weight-light">CreatedAt:</div>
+          <div class="text-uppercase font-weight-light">Created At</div>
           <strong>{{ createdDate }}</strong>
         </div>
       </v-row>
